@@ -18,7 +18,6 @@ void AccountDao::insert(string mailName, string password)
 TAccount* AccountDao::selectByMailName(string mailName)
 {
     string sql = "select * from t_account where mail_name = '" + mailName + "'";
-    TRACE(sql.c_str());
     auto rs = DBManager::GetInstance()->ExecuteSql(sql);
     if(rs->BOF)
     {
@@ -38,9 +37,27 @@ TAccount* AccountDao::selectByMailName(string mailName)
     return result;
 }
 
-list<TAccount>* AccountDao::selectAll()
+list<TAccount*>* AccountDao::selectAll()
 {
-    return nullptr;
+    string sql = "select * from t_account";
+    auto rs = DBManager::GetInstance()->ExecuteSql(sql);
+    auto accounts = new list<TAccount*>;
+    while (!rs->adoEOF)
+    {
+        TAccount* result = new TAccount();
+        string strID;
+        _variant_t var;
+        var = rs->GetCollect("ID");
+        strID = _bstr_t(var);
+        result->id = stoi(strID);
+        var = rs->GetCollect("mail_name");
+        result->mailName = _bstr_t(var);
+        var = rs->GetCollect("password");
+        result->password = _bstr_t(var);
+        rs->MoveNext();
+        accounts->push_back(result);
+    }
+    return accounts;
 }
 
 void AccountDao::deleteByPrimaryKey(int id)
@@ -50,4 +67,24 @@ void AccountDao::deleteByPrimaryKey(int id)
 
 void AccountDao::updateByPrimaryKey(TAccount& account)
 {
+    auto rs = DBManager::GetInstance()->GetWritter("t_account");
+    rs->MoveFirst();
+    while(!rs->adoEOF)
+    {
+        string strID;
+        _variant_t var;
+        var = rs->GetCollect("ID");
+        strID = _bstr_t(var);
+        int id = stoi(strID);
+        if (id == account.id)
+        {
+         // 如果找到了
+            rs->PutCollect("mail_name", account.mailName.c_str());
+            rs->PutCollect("password", account.password.c_str());
+            rs->Update();
+            break;
+        }
+        rs->MoveNext();
+    }
+    rs->MoveLast();
 }

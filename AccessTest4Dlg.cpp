@@ -170,6 +170,7 @@ void CAccessTest4Dlg::OnBnClickedButton1()
 	//CString str = CA2T(result->password.c_str());
 	//SetDlgItemText(IDC_STATIC, str);
 
-	MailDao::insert(1, "Hello world", "你好", "yikunitang@gmail.com");
-	
+	//MailDao::insert(1, "Hello world", "你好", "yikunitang@gmail.com");
+	auto mails = MailDao::selectByMailId(1);
+	DebugUtil::print(mails->front()->title);
 }

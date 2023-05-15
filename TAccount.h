@@ -4,7 +4,7 @@ using namespace std;
 class TAccount
 {
 public:
-    int id;
+    int id = -1;
     string mailName;
     string password;
 };
