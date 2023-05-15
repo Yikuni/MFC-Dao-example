@@ -160,10 +160,9 @@ HCURSOR CAccessTest4Dlg::OnQueryDragIcon()
 }
 
 
-
+// 测试按钮
 void CAccessTest4Dlg::OnBnClickedButton1()
 {
-	DebugUtil::dlg = this;
 	//DBManager::GetInstance()->ExecuteSql("select * from t_account");
 	//AccountDao::insert("tbw1", "tbw233");
 	//auto result = AccountDao::selectByMailName("yikuni");
@@ -171,6 +170,15 @@ void CAccessTest4Dlg::OnBnClickedButton1()
 	//SetDlgItemText(IDC_STATIC, str);
 
 	//MailDao::insert(1, "Hello world", "你好", "yikunitang@gmail.com");
-	auto mails = MailDao::selectByMailId(1);
-	DebugUtil::print(mails->front()->title);
+	MailDao::deleteByPrimaryKey(10);
+	AccountDao::deleteByPrimaryKey(10);
+	AccountDao::selectByMailName("awa");
+	TAccount account;
+	account.id = 10;
+	account.password = "awa";
+	account.mailName = "qwq";
+	AccountDao::updateByPrimaryKey(account);
+	AccountDao::selectByMailName("fasfds");
+	DebugUtil::print("你好");
+	
 }
