@@ -7,6 +7,7 @@
 #include "AccessTest4.h"
 #include "AccessTest4Dlg.h"
 #include "DBManager.h"
+#include "DebugUtil.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -43,8 +44,14 @@ BOOL CAccessTest4App::InitInstance()
 {
 	// 连接数据库
 	AfxOleInit();
-	DBManager::GetInstance()->loadDB("test.accdb");
-
+	bool isLoaded = DBManager::GetInstance()->loadDB("test.accdb");
+	if (!isLoaded)
+	{
+		if (!DBManager::GetInstance()->loadDB("../test.accdb"))
+		{
+			DebugUtil::print("无法打开数据库!");
+		}
+	}
 	// 如果一个运行在 Windows XP 上的应用程序清单指定要
 	// 使用 ComCtl32.dll 版本 6 或更高版本来启用可视化方式，
 	//则需要 InitCommonControlsEx()。  否则，将无法创建窗口。

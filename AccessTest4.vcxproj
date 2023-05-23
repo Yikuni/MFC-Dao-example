@@ -193,6 +193,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="strfunction.h" />
     <ClInclude Include="TAccount.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TMail.h" />

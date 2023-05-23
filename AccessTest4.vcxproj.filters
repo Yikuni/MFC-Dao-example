@@ -39,6 +39,24 @@
     <ClInclude Include="DBManager.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="AccountDao.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugUtil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MailDao.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TAccount.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TMail.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="strfunction.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AccessTest4.cpp">
@@ -54,6 +72,21 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DBManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AccountDao.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugUtil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MailDao.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TAccount.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TMail.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
