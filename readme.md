@@ -12,7 +12,7 @@
 
 ## ER图
 
-![E-R图](D:\code\cpp\projects\AccessTest4\E-R图.jpg)
+![E-R图](https://github.com/Yikuni/MFC-Dao-example/blob/master/E-R%E5%9B%BE.jpg)
 
 ## 设计思路
 
@@ -56,7 +56,7 @@
 
 ### UI
 
-![image-20230523211231754](D:\code\cpp\projects\AccessTest4\image-20230523211231754.png)
+![image-20230523211231754](https://github.com/Yikuni/MFC-Dao-example/blob/master/image-20230523211231754.png)
 
 ### 关于邮箱
 
@@ -67,7 +67,7 @@
 - 修改用户名和密码
 
   > 双击要修改的邮箱:
-  > ![image-20230523211455733](D:\code\cpp\projects\AccessTest4\image-20230523211455733.png)
+  > ![image-20230523211455733](https://github.com/Yikuni/MFC-Dao-example/blob/master/image-20230523211455733.png)
   >
   > 在输入栏中修改信息后点击修改,页面数据将自动刷新
 
